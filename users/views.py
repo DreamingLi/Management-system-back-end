@@ -41,7 +41,6 @@ def register(request):
         })
 
 
-# 如果登录失败，返回{msg:xxx} code 400
 def login(request):
     payload = simplejson.loads(request.body)
     username = payload['username']
@@ -113,37 +112,34 @@ def update(request):
 
 
 def info(request):
-    ret = JsonResponse({})
-    ret.set_cookie('userid', 1)
+    user_id = request.COOKIES.get("userid")
+    user = User.objects.get(id=user_id)
+    ret = JsonResponse({
+        "code": 200,
+        "data": {
+            "user_id": user.id,
+            "username": user.username,
+            "type": user.type,
+            "position": user.position,
+            "motto": user.motto,
+            "avatar": user.avatar,
+        }
+    })
+
+    ret.set_cookie('userid', user_id)
     return ret
 
 
-def list(request):
+def listUser(request):
+    user_id = request.COOKIES.get("userid")
+    users = list(User.objects.exclude(id=user_id).values())
+    for user in users:
+        del user['password']
     ret = JsonResponse(
         {
             "code": 200,
-            "data":
-                [
-                    {
-                        "user_id": "1",
-                        "username": "Jason",
-                        "type": "manager",
-                        "position": "junior developer",
-                        "motto": "test",
-                        "avatar": "ava1",
-                        "code": 200
-                    },
-                    {
-                        "user_id": "2",
-                        "username": "Jason",
-                        "type": "manager",
-                        "position": "junior developer",
-                        "motto": "test",
-                        "avatar": "ava2",
-                        "code": 200
-                    }
-                ]
+            "data": users
         }, safe=False
     )
-    ret.set_cookie('userid', 1)
+    ret.set_cookie('userid', user_id)
     return ret
