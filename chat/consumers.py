@@ -19,7 +19,7 @@ class ChatConsumer(WebsocketConsumer):
     # 如果code是250，代表是注册信息
     def receive(self, text_data):
         payload = simplejson.loads(text_data)
-        print(payload)
+
         if payload['code'] == "250":
             connection_dict[payload['id']] = self
         else:

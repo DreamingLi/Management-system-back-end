@@ -28,7 +28,7 @@ def listMsg(request):
     for chat in chat_qs:
         ret = {"from": chat.sender, "to": chat.receiver, "content": chat.content, "chat_id": chat.chat_id,
                "chat_read": chat.read,
-               "create_time": int(chat.create_time.now().timestamp())}
+               "create_time": int(chat.create_time.now().timestamp()) * 1000}
         ret_msg.append(ret)
 
     ret = {"code": 200, "data": {"users": ret_dict, "chatMsgs": ret_msg}}
