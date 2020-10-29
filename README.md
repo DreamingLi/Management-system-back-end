@@ -1,13 +1,20 @@
 # Management-system-back-end
 
-该项目使用了Django3 的ASGI异步框架，性能相对于同步的WSGI大约提升3-5倍。
-这个项目有web chat的需求，因此使用了channel库来支持。项目前端是react框架，正常来说，socket.io是首选，但是由于Django并没有支持seocket.io，因此 使用了channel （websocket）来代替。
 
-目前整个项目还在开发中，聊天功能基本完成，只差表情等小功能需要实现。另外对于任务的分发，接收，交付还没有完成。
+Project name: Team Management System
+![image](https://github.com/DreamingLi/Management-system-back-end/blob/main/img/team-manager.68e4d31c.gif)
+================================================================================================================
+Techniques: React + React-Redux + Redux thunk + AJAX + WebSockets + Antd-Mobile + SQlite + Django
+Description: This is a company internal team management system for mobile users. It has two different roles: employee and manager. The
+employee role could view all the workers in the company, view tasks assigned to them by leaders. The manager role has the same functions as
+the employee roles, but it has another function that assigning tasks to employees. Both roles could communicate with anyone in the company.
 
 
-This project uses the ASGI asynchronous framework of Django3, and its performance is about 3-5 times higher than WSGI.
-Channel is used in this project to support webchat, The front end of this project is the React framework. Since Django does not support seocket.io, channel (websocket) 
-is used instead. 
+Front-end:
+1. Control state by React-Redux and Redux-thunk
+2. Antd-mobile is used for the UI design
+3. Users communication are supported by WebSockets
 
-This project is still on developing, the function of web chat is almost completed, but such as emoji function is not completed.
+Back-end
+1. User communication is supported by channels.
+2. Replace the default django admin site with simple-ui.
