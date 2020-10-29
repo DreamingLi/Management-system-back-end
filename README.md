@@ -1,9 +1,12 @@
 # Management-system-back-end
 
+![image](https://github.com/DreamingLi/Management-system-back-end/blob/main/img/team-manager.68e4d31c.gif)
+
+================================================================================================================
+
 
 Project name: Team Management System
-![image](https://github.com/DreamingLi/Management-system-back-end/blob/main/img/team-manager.68e4d31c.gif)
-================================================================================================================
+
 Techniques: React + React-Redux + Redux thunk + AJAX + WebSockets + Antd-Mobile + SQlite + Django
 Description: This is a company internal team management system for mobile users. It has two different roles: employee and manager. The
 employee role could view all the workers in the company, view tasks assigned to them by leaders. The manager role has the same functions as
