@@ -2,7 +2,7 @@
 
 ![image](https://github.com/DreamingLi/Management-system-back-end/blob/main/img/team-manager.68e4d31c.gif)
 
-================================================================================================================
+=============================================================================================
 
 
 Project name: Team Management System
